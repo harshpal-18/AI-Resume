@@ -1,21 +1,21 @@
 import axios from "axios";
 
+const BASE_URL =
+  import.meta.env.VITE_API_URL || "http://localhost:5000";
+
 const api = axios.create({
-    const api = axios.create({
-    baseURL: (import.meta.env.VITE_API_URL || "http://localhost:5000") + "/api",
-  });
+  baseURL: BASE_URL + "/api",
 });
 
-// 🔥 FIXED: return only content
 export const generateAIContent = async (payload) => {
   try {
     const { data } = await api.post("/generate", payload);
 
     if (!data || !data.content) {
-      throw new Error("No content received from server");
+      throw new Error("No content received");
     }
 
-    return data.content; // ✅ return only text
+    return data.content;
   } catch (error) {
     console.error("API ERROR:", error);
     throw error;
@@ -32,10 +32,10 @@ export const downloadPortfolioZip = async (formData, generated) => {
   const blob = new Blob([response.data], { type: "application/zip" });
   const url = URL.createObjectURL(blob);
 
-  const anchor = document.createElement("a");
-  anchor.href = url;
-  anchor.download = `${formData.fullName || "portfolio"}-portfolio.zip`;
-  anchor.click();
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `${formData.fullName || "portfolio"}-portfolio.zip`;
+  a.click();
 
   URL.revokeObjectURL(url);
 };
