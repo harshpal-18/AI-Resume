@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # AI Resume + Portfolio Generator
 
 Full-stack AI-powered web app that generates:
@@ -96,3 +97,6 @@ AI-Resume-Portfolio-Generator/
 - Auth + saved history
 - Better ATS scoring with rubric
 - One-click portfolio deploy action
+=======
+# AI-Resume
+>>>>>>> 3a2a182f332f5815f13720eb44c84a2b38d066c9

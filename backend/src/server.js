@@ -8,6 +8,9 @@ const { htmlTemplate, cssTemplate, jsTemplate } = require("./services/portfolioT
 dotenv.config();
 
 const app = express();
+app.get("/api/health", (req, res) => {
+  res.json({ status: "ok" });
+});
 const PORT = process.env.PORT || 5000;
 
 app.use(cors());
