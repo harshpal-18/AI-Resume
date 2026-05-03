@@ -9,5 +9,8 @@
   },
   "devDependencies": {
     "concurrently": "^9.2.1"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1"
   }
 }
