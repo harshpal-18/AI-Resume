@@ -1,16 +1,16 @@
-<<<<<<< HEAD
 # AI Resume + Portfolio Generator
 
 Full-stack AI-powered web app that generates:
-- ATS-friendly resume content + downloadable PDF
-- Personal portfolio website preview + downloadable ZIP code
+
+- ATS-friendly resume content and downloadable PDF
+- Personal portfolio website preview and downloadable ZIP code
 - LinkedIn-ready headline, about section, and skills keywords
 
 ## Tech Stack
 
-- Frontend: React + Vite + Tailwind CSS + Framer Motion
-- Backend: Node.js + Express
-- AI: OpenAI API (with local fallback generation when API key is missing)
+- Frontend: React, Vite, Tailwind CSS, Framer Motion
+- Backend: Node.js, Express
+- AI: Gemini API, with local fallback generation when the API key is missing
 - PDF: `@react-pdf/renderer`
 - Export: ZIP generation via `archiver`
 
@@ -21,7 +21,6 @@ AI-Resume-Portfolio-Generator/
   backend/
     src/
       services/
-        openaiService.js
         portfolioTemplateService.js
       server.js
     .env.example
@@ -42,61 +41,63 @@ AI-Resume-Portfolio-Generator/
 ## Local Setup
 
 1. Install dependencies:
+
    ```bash
    npm install
    npm install --prefix frontend
    npm install --prefix backend
    ```
+
 2. Configure environment:
+
    - Copy `backend/.env.example` to `backend/.env`
    - Copy `frontend/.env.example` to `frontend/.env`
-3. Add your OpenAI key in `backend/.env`:
+
+3. Add your Gemini key in `backend/.env`:
+
    ```bash
-   OPENAI_API_KEY=your_key_here
+   GEMINI_API_KEY=your_key_here
+   GEMINI_MODEL=gemini-1.5-flash-latest
    ```
-4. Run both frontend + backend:
+
+4. Run both frontend and backend:
+
    ```bash
    npm run dev
    ```
+
 5. Open the app:
+
    - Frontend: `http://localhost:5173`
    - Backend health: `http://localhost:5000/api/health`
 
 ## MVP Features Included
 
-- Modern, minimal form UI for user details
-- AI enhancement of projects/experience and professional summary
-- LinkedIn bio generator (headline/about/keywords)
+- Modern form UI for user details
+- Gemini enhancement of projects, experience, and professional summary
+- LinkedIn bio generator
 - ATS-style resume content
 - Resume PDF download
-- Portfolio preview with smooth styling
+- Portfolio preview
 - Download portfolio code as ZIP
 
 ## Deployment Guide
 
-### Option A: Vercel (Recommended)
+Deploy the backend and frontend separately.
 
-1. Push project to GitHub.
-2. Deploy backend as a Node server (Vercel project root: `backend`).
-3. Set environment variables on backend:
-   - `OPENAI_API_KEY`
-   - `PORT` (optional)
-4. Deploy frontend as separate Vercel project (root: `frontend`).
-5. Set frontend env:
-   - `VITE_API_URL=https://your-backend-domain/api`
+Backend environment variables:
 
-### Option B: Netlify + Render/Railway
+- `GEMINI_API_KEY`
+- `GEMINI_MODEL` optional, defaults to `gemini-1.5-flash-latest`
+- `PORT` optional
 
-1. Deploy `frontend` on Netlify.
-2. Deploy `backend` on Render/Railway as Node web service.
-3. Configure `VITE_API_URL` in Netlify environment.
+Frontend environment variables:
+
+- `VITE_API_URL=https://your-backend-domain`
 
 ## Next Improvements
 
 - Multiple resume templates
-- Auth + saved history
-- Better ATS scoring with rubric
+- Auth and saved history
+- Better ATS scoring with a rubric
 - One-click portfolio deploy action
-=======
-# AI-Resume
->>>>>>> 3a2a182f332f5815f13720eb44c84a2b38d066c9
